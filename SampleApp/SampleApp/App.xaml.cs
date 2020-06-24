@@ -56,6 +56,7 @@ namespace SampleApp
 
             // Core Services
             services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<ISampleDataService, SampleDataService>();
 
             // Services
             services.AddSingleton<IApplicationInfoService, ApplicationInfoService>();
@@ -71,6 +72,9 @@ namespace SampleApp
 
             services.AddTransient<ContentGridViewModel>();
             services.AddTransient<ContentGridPage>();
+
+            services.AddTransient<ContentGridDetailViewModel>();
+            services.AddTransient<ContentGridDetailPage>();
 
             services.AddTransient<SettingsViewModel>();
             services.AddTransient<SettingsPage>();

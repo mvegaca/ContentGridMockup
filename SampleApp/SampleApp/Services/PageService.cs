@@ -19,6 +19,7 @@ namespace SampleApp.Services
         {
             _serviceProvider = serviceProvider;
             Configure<ContentGridViewModel, ContentGridPage>();
+            Configure<ContentGridDetailViewModel, ContentGridDetailPage>();
             Configure<SettingsViewModel, SettingsPage>();
         }
 

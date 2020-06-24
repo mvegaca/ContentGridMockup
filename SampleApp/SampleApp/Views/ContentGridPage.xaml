@@ -8,6 +8,28 @@
     xmlns:properties="clr-namespace:SampleApp.Properties"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
+    <Page.Resources>
+        <DataTemplate x:Key="contentGridItemTemplate">
+            <Grid
+                Width="150"
+                Height="150"
+                Background="{DynamicResource MahApps.Brushes.Gray10}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24, 24, 24, 24">
+                    <TextBlock
+                        FontSize="24"
+                        Text="{Binding Symbol}"
+                        HorizontalAlignment="Center"
+                        FontFamily="Segoe MDL2 Assets" />
+                    <TextBlock
+                        Margin="{StaticResource XXSmallTopMargin}"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource BodyTextStyle}"
+                        Text="{Binding Company}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="48" />
@@ -17,14 +39,13 @@
             Style="{StaticResource PageTitleStyle}"
             Margin="{StaticResource MediumLeftMargin}"
             Text="{x:Static properties:Resources.ContentGridPageTitle}" />
-        <Grid
+        <ListView
             Grid.Row="1"
-            Margin="{StaticResource MediumLeftRightMargin}"
-            Background="{DynamicResource MahApps.Brushes.Gray10}">
-            <!--
-            The Mahapps Gray10 color represents where you should place your content.
-            Place your content here.
-            -->
-        </Grid>
+            Margin="{StaticResource SmallLeftRightMargin}"
+            SelectionMode="Single"
+            ItemsSource="{Binding Source}"
+            Style="{StaticResource ContentGridListViewStyle}"
+            SelectionChanged="OnListViewSelectionChanged"
+            ItemTemplate="{StaticResource contentGridItemTemplate}" />
     </Grid>
 </Page>
