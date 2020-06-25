@@ -8,7 +8,9 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:properties="clr-namespace:SampleApp.Properties"
     xmlns:templateSelectors="clr-namespace:SampleApp.TemplateSelectors"
-    Style="{StaticResource CustomMetroWindow}"
+    MinWidth="600"
+    MinHeight="350"
+    Style="{StaticResource CustomMetroWindow}"    
     mc:Ignorable="d"
     Title="{x:Static properties:Resources.AppDisplayName}">
     <i:Interaction.Triggers>

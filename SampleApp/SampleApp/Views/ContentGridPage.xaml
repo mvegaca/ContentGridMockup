@@ -11,10 +11,10 @@
     <Page.Resources>
         <DataTemplate x:Key="contentGridItemTemplate">
             <Grid
-                Width="150"
-                Height="150"
+                Width="160"
+                Height="160"
                 Background="{DynamicResource MahApps.Brushes.Gray10}">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="24, 24, 24, 24">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{StaticResource MediumLeftTopRightBottomMargin}">
                     <TextBlock
                         FontSize="24"
                         Text="{Binding Symbol}"
@@ -41,7 +41,7 @@
             Text="{x:Static properties:Resources.ContentGridPageTitle}" />
         <ListView
             Grid.Row="1"
-            Margin="{StaticResource SmallLeftRightMargin}"
+            Margin="{StaticResource SmallLeftMargin}"
             SelectionMode="Single"
             ItemsSource="{Binding Source}"
             Style="{StaticResource ContentGridListViewStyle}"
