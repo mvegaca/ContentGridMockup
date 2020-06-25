@@ -8,7 +8,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:properties="clr-namespace:SampleApp.Properties"
     xmlns:templateSelectors="clr-namespace:SampleApp.TemplateSelectors"
-    MinWidth="600"
+    MinWidth="500"
     MinHeight="350"
     Style="{StaticResource CustomMetroWindow}"    
     mc:Ignorable="d"

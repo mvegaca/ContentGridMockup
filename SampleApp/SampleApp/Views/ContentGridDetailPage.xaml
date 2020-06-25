@@ -15,21 +15,16 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
                     <Grid
                         Width="200"
                         Height="200"
                         Grid.Column="0"
                         Grid.Row="0"
                         Grid.RowSpan="3"
-                        Background="{DynamicResource MahApps.Brushes.Gray10}">
+                        Background="{DynamicResource MahApps.Brushes.Gray10}"
+                        VerticalAlignment="Top">
                         <TextBlock
                             FontSize="40"
                             Text="{Binding Item.Symbol}"
@@ -37,51 +32,36 @@
                             HorizontalAlignment="Center"
                             FontFamily="Segoe MDL2 Assets" />
                     </Grid>
-
-                    <TextBlock
-                        Grid.Column="1"
-                        Grid.ColumnSpan="2"
-                        Grid.Row="0"
-                        Margin="{StaticResource SmallLeftTopMargin}"
-                        Style="{StaticResource PageTitleStyle}"
-                        Text="{Binding Item.Company}" />
-
                     <StackPanel
-                        Grid.Column="1"
-                        Grid.Row="1"                        
-                        Margin="{StaticResource SmallLeftTopMargin}">
-                        <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Status" />
-                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.Status}" />
-                    </StackPanel>
+                        Grid.Column="1"                        
+                        Grid.Row="0">
+                        <TextBlock
+                            Margin="{StaticResource SmallLeftMargin}"
+                            Style="{StaticResource PageTitleStyle}"
+                            Text="{Binding Item.Company}" />
+                        <StackPanel
+                            Margin="{StaticResource SmallLeftTopMargin}">
+                            <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Status" />
+                            <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.Status}" />
+                        </StackPanel>
 
-                    <StackPanel
-                        Grid.Column="1"
-                        Grid.Row="2"
-                        Margin="{StaticResource SmallLeftTopMargin}">
-                        <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Order date" />
-                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.OrderDate}" />
-                    </StackPanel>
+                        <StackPanel
+                            Margin="{StaticResource SmallLeftTopMargin}">
+                            <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Order date" />
+                            <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.OrderDate}" />
+                        </StackPanel>
 
-                    <StackPanel
-                        Grid.Column="2"
-                        Grid.Row="1"                        
-                        Margin="{StaticResource SmallLeftTopMargin}">
-                        <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Ship to" />
-                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.ShipTo}" />
+                        <StackPanel
+                            Margin="{StaticResource SmallLeftTopMargin}">
+                            <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Order total" />
+                            <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.OrderTotal}" />
+                        </StackPanel>
                     </StackPanel>
-
-                    <StackPanel
-                        Grid.Column="2"
-                        Grid.Row="2"
-                        Margin="{StaticResource SmallLeftTopMargin}">
-                        <TextBlock Style="{StaticResource SubtitleTextStyle}" Text="Order total" />
-                        <TextBlock Style="{StaticResource BodyTextStyle}" Text="{Binding Item.OrderTotal}" />
-                    </StackPanel>
-
+                    
                 </Grid>
 
                 <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
+                    Margin="{StaticResource MediumTopMargin}"
                     Style="{StaticResource SubtitleTextStyle}"
                     Text="Note 1" />
                 <TextBlock
@@ -89,7 +69,7 @@
                     Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
 
                 <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
+                    Margin="{StaticResource MediumTopMargin}"
                     Style="{StaticResource SubtitleTextStyle}"
                     Text="Note 2" />
                 <TextBlock
