@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:properties="clr-namespace:SampleApp.Properties"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:behaviors="clr-namespace:SampleApp.Behaviors"
     mc:Ignorable="d"
     d:DesignHeight="450" d:DesignWidth="800">
     <Page.Resources>
@@ -45,7 +46,10 @@
             SelectionMode="Single"
             ItemsSource="{Binding Source}"
             Style="{StaticResource ContentGridListViewStyle}"
-            SelectionChanged="OnListViewSelectionChanged"
-            ItemTemplate="{StaticResource contentGridItemTemplate}" />
+            ItemTemplate="{StaticResource contentGridItemTemplate}">
+            <i:Interaction.Behaviors>
+                <behaviors:ListViewSelectionBehavior Command="{Binding SelectItemCommand}" />
+            </i:Interaction.Behaviors>
+        </ListView>
     </Grid>
 </Page>

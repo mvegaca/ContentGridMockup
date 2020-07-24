@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
 using SampleApp.Contracts.Services;
 using SampleApp.Contracts.ViewModels;
 using SampleApp.Core.Contracts.Services;
@@ -11,6 +13,9 @@ namespace SampleApp.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly ISampleDataService _sampleDataService;
+        private ICommand _selectItemCommand;
+
+        public ICommand SelectItemCommand => _selectItemCommand ?? (_selectItemCommand = new RelayCommand<SampleOrder>(OnSelectItem));        
 
         public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
 
@@ -36,7 +41,9 @@ namespace SampleApp.ViewModels
         {
         }
 
-        public void OnSelectionChanged(long orderID)
-            => _navigationService.NavigateTo(typeof(ContentGridDetailViewModel).FullName, orderID);
+        private void OnSelectItem(SampleOrder order)
+        {
+            _navigationService.NavigateTo(typeof(ContentGridDetailViewModel).FullName, order.OrderID);
+        }
     }
 }
