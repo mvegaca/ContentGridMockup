@@ -48,7 +48,7 @@
             Style="{StaticResource ContentGridListViewStyle}"
             ItemTemplate="{StaticResource contentGridItemTemplate}">
             <i:Interaction.Behaviors>
-                <behaviors:ListViewSelectionBehavior Command="{Binding SelectItemCommand}" />
+                <behaviors:ListViewItemSelectionBehavior Command="{Binding NavigateToDetailCommand}" />
             </i:Interaction.Behaviors>
         </ListView>
     </Grid>

@@ -5,7 +5,7 @@ using Microsoft.Xaml.Behaviors;
 
 namespace SampleApp.Behaviors
 {
-    public class ListViewSelectionBehavior : Behavior<ListView>
+    public class ListViewItemSelectionBehavior : Behavior<ListView>
     {
         public ICommand Command
         {
@@ -13,7 +13,7 @@ namespace SampleApp.Behaviors
             set { SetValue(CommandProperty, value); }
         }
 
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(nameof(Command), typeof(ICommand), typeof(ListViewSelectionBehavior), new PropertyMetadata(null));
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(nameof(Command), typeof(ICommand), typeof(ListViewItemSelectionBehavior), new PropertyMetadata(null));
 
 
         protected override void OnAttached()
@@ -21,7 +21,7 @@ namespace SampleApp.Behaviors
             base.OnAttached();
             var listView = base.AssociatedObject as ListView;
             listView.PreviewMouseLeftButtonDown += OnPreviewMouseLeftButtonDown;
-            listView.PreviewKeyDown += OnPreviewKeyDown;
+            listView.KeyDown += OnKeyDown;
         }
 
         protected override void OnDetaching()
@@ -29,13 +29,13 @@ namespace SampleApp.Behaviors
             base.OnDetaching();
             var listView = base.AssociatedObject as ListView;
             listView.PreviewMouseLeftButtonDown -= OnPreviewMouseLeftButtonDown;
-            listView.PreviewKeyDown -= OnPreviewKeyDown;
+            listView.KeyDown -= OnKeyDown;
         }
 
         private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             => SelectItem(e);
 
-        private void OnPreviewKeyDown(object sender, KeyEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
