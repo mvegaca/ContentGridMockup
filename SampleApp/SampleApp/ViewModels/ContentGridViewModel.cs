@@ -13,9 +13,9 @@ namespace SampleApp.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly ISampleDataService _sampleDataService;
-        private ICommand _selectItemCommand;
+        private ICommand _navigateToDetailCommand;
 
-        public ICommand SelectItemCommand => _selectItemCommand ?? (_selectItemCommand = new RelayCommand<SampleOrder>(OnSelectItem));        
+        public ICommand NavigateToDetailCommand => _navigateToDetailCommand ?? (_navigateToDetailCommand = new RelayCommand<SampleOrder>(NavigateToDetail));        
 
         public ObservableCollection<SampleOrder> Source { get; } = new ObservableCollection<SampleOrder>();
 
@@ -41,7 +41,7 @@ namespace SampleApp.ViewModels
         {
         }
 
-        private void OnSelectItem(SampleOrder order)
+        private void NavigateToDetail(SampleOrder order)
         {
             _navigationService.NavigateTo(typeof(ContentGridDetailViewModel).FullName, order.OrderID);
         }
